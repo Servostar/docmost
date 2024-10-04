@@ -154,18 +154,15 @@ export default function ExcalidrawView(props: NodeViewProps) {
 
       {src ? (
         <div style={{ position: 'relative' }}>
-          <Image
+          <object
+            style={{display: "block", width: width, borderRadius: "md"}}
             onClick={(e) => e.detail === 2 && handleOpen()}
-            radius="md"
-            fit="contain"
-            w={width}
-            src={getFileUrl(src)}
-            alt={title}
             className={clsx(
               selected ? 'ProseMirror-selectednode' : '',
               'alignCenter'
             )}
-          />
+            type="image/svg+xml"
+            data={getFileUrl(src)}/>
 
           {selected && (
             <ActionIcon
